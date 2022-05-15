@@ -16,19 +16,29 @@ main{
     align-items: center;
 }
 
-.botaoComecar{
+#linkBotaoComecar{
     width: 40%;
     height: 67px;
     background-color: #0A3871;
     color: white;
-    border-radius: 24px;
-    display: inline;
     margin: 10px;
+    border-radius: 24px;
+    text-align: center;
+    font-style: normal;
+    border: initial;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.botaoComecar{
     font-family: 'Inter';
     font-style: normal;
-    text-align: center;
     border: initial;
-    font-size: large;
+    font-size: 24px;
+    background-color: #0A3871;
+    color: white;
 }
 
 .botaoComecar:active {
@@ -47,10 +57,88 @@ main{
     box-sizing: border-box;
     background: #D8DFE8;
     margin: 10px;
-    font-size: large;
+    font-size: 24px;
+}
+
+#botaoAdicionarNovaPalavra{
+    display: contents;
+
 }
 
 .botaoAdicionarNovaPalavra:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.botoes{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.salvarEComecar{
+    width: 30%;
+    height: 67px;
+    background-color: #0A3871;
+    color: white;
+    border-radius: 24px;
+    margin: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    border: initial;
+    font-size: 24px;
+}
+
+.salvarEComecar:active {
+    transform: scale(.96);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancelar{
+    width: 30%;
+    height: 67px;
+    background-color: #0A3871;
+    color: #0A3871;
+    border-radius: 24px;
+    font-family: 'Inter';
+    border: 1px solid #0A3871;
+    box-sizing: border-box;
+    background: #D8DFE8;
+    margin: 10px;
+    font-size: 24px;
+}
+
+#cancelar{
+    display: contents;
+}
+
+#jogoDaForca{
+    display: contents;  
+}
+
+textarea {
+    width: 60%;
+    height: 40%;
+    margin-bottom: 30px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    font-size: 36px;
+    color: #0A3871;
+    
+}
+
+textarea::placeholder {
+    color: #0A3871;
+  }
+
+.conjuntoAviso{
+    display: flex;
+}
+
+.exclamacao{
+    margin-right: 5px;
 }
