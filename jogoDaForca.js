@@ -1,7 +1,7 @@
 let palavrasExistentes = localStorage.getItem("palavras");
 
-const sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
-console.log(palavras[sorteidoDaPalavra]);
-
-var palavraPreparada = random.split("", random.length);
+var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
+var palavraSorteada = palavras[sorteidoDaPalavra]
+console.log(palavraSorteada);
+var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
 console.log(palavraPreparada);
