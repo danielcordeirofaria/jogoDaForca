@@ -1,4 +1,4 @@
-function addNovaPalavra{
+function addNovaPalavra(){
     var selecionandoTextArea = document.getElementById("palavraAdicionada").value;
     var novasPalavras = palavrasExistentes.push("selecionandoTextArea");
     localStorage.setItem('palavras', palavras);
