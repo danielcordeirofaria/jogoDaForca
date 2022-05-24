@@ -16,6 +16,17 @@ main{
     justify-content: center;
 }
 
+#main{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+
+}
+
 #mainAdicionarUmaPalavra{
     width: 100vw;
     height: 80vh;
@@ -40,6 +51,8 @@ main{
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
+    user-select: none;
+
 }
 
 .botaoComecar{
@@ -49,11 +62,15 @@ main{
     font-size: 24px;
     background-color: #0A3871;
     color: white;
+    user-select: none;
+
 }
 
 .botaoComecar:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
 }
 
 .botaoAdicionarNovaPalavra{
@@ -68,16 +85,22 @@ main{
     background: #D8DFE8;
     margin: 10px;
     font-size: 24px;
+    user-select: none;
+
 }
 
 #botaoAdicionarNovaPalavra{
     display: contents;
+    user-select: none;
+
 
 }
 
 .botaoAdicionarNovaPalavra:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
 }
 
 .botoes{
@@ -86,6 +109,7 @@ main{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    user-select: none;
 }
 
 .salvarEComecar{
@@ -100,11 +124,15 @@ main{
     text-align: center;
     border: initial;
     font-size: 24px;
+    user-select: none;
+
 }
 
 .salvarEComecar:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
 }
 
 .cancelar{
@@ -119,6 +147,8 @@ main{
     background: #D8DFE8;
     margin: 10px;
     font-size: 24px;
+    user-select: none;
+
 }
 
 #cancelar{
@@ -167,6 +197,8 @@ textarea::placeholder {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
+    user-select: none;
+
 }
 
 .novoJogo{
@@ -176,11 +208,15 @@ textarea::placeholder {
     font-size: 24px;
     background-color: #0A3871;
     color: white;
+    user-select: none;
+
 }
 
 .novoJogo:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
 }
 
 
@@ -196,20 +232,63 @@ textarea::placeholder {
     background: #D8DFE8;
     margin: 10px;
     font-size: 24px;
+    user-select: none;
+
 }
 
 #botaoDesistir{
     display: contents;
+    user-select: none;
+
 
 }
 
 .botaoDesistir:active {
     transform: scale(.96);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+
 }
 
 .palavraInvisivel{
     color: #E5E5E5;
     text-decoration: underline;
     text-decoration-style: solid
+}
+
+.botao{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    user-select: none;
+
+}
+
+.divParaPalavra{
+    width: 100%;
+    font-size: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadaLetra{
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #E5E5E5;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #0A3871;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    padding-bottom: 10px;
 }

@@ -1,8 +1,3 @@
-function adcElemento (){
-    var divNova = document.createElement("div");
-    main.appendChild(divNova);
-    var divAtual = document.getElementById("main");
-}
 
 
 let palavrasExistentes = localStorage.getItem("palavras");
@@ -13,11 +8,12 @@ console.log(palavraSorteada);
 var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
 console.log(palavraPreparada);
 
-var main = document.querySelector("main");
-
-adcElemento();
-
-//for (var i = 0; i < palavraPreparada.length; i++) {
-//QQ    main.innerHTML = palavraPreparada[i];
-//};
+for (var i = 0; i < palavraPreparada.length; i++) {
+    var divParaPalavra = document.querySelector(".divParaPalavra")
+    console.log(divParaPalavra)
+    var div1 = document.createElement("div");
+    div1.classList.add("cadaLetra");
+    divParaPalavra.appendChild(div1);
+    div1.textContent = palavraPreparada[i];
+};
 
