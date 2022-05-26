@@ -1,6 +1,6 @@
 html{
-    height: 100%;
-    width: 100%;
+    max-height: 800px;
+    max-width: 1200px;
     background-color: #E5E5E5;
 }
 
@@ -21,8 +21,8 @@ main{
     height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: end;
     justify-content: center;
+    align-items: center;
 
 
 }
@@ -168,6 +168,8 @@ textarea {
     outline: 0;
     font-size: 36px;
     color: #0A3871;
+    text-transform: uppercase;
+
     
 }
 
@@ -291,4 +293,67 @@ textarea::placeholder {
     justify-content: center;
     user-select: none;
     padding-bottom: 10px;
+}
+
+#canvas{
+    width: 600px;
+    height: 400px;
+    background-color: #0d6ae4;
+    justify-content: center;
+    margin-right: 20px;
+
+}
+
+.letrasECanvas{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+input{
+    margin: 50px;    
+    height: 50px;
+    width: 40px;
+    font-size: 40px;
+    text-transform: uppercase;
+    justify-content: center;
+    text-align:center
+}
+
+#botoesDeLetras{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 40px;
+    width: 380px;
+    height: 300px;
+}
+
+#letra{
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #0A3871;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    border: initial;
+    font-size: 24px;
+}
+
+#letra:active {
+    transform: scale(.96);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+}
+
+.letraAcertada{
+    color: #0A3871;
+
 }

@@ -1,7 +1,7 @@
 
 
 let palavrasExistentes = localStorage.getItem("palavras");
-
+console.log(palavras)
 var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
 var palavraSorteada = palavras[sorteidoDaPalavra]
 console.log(palavraSorteada);
@@ -16,4 +16,17 @@ for (var i = 0; i < palavraPreparada.length; i++) {
     divParaPalavra.appendChild(div1);
     div1.textContent = palavraPreparada[i];
 };
+
+
+
+var selecaoDaLetraA = document.querySelector(".a");
+var letraA = selecaoDaLetraA.addEventListener("click", verificacaoDeLetraA)
+
+function verificacaoDeLetraA (){
+        if(a == palavraPreparada)
+            var confirmandoA = document.querySelector("palavraPreparada");
+            confirmandoA.classList.replace("cadaLetra", "letraAcertada");
+
+}
+
 
