@@ -1,17 +1,9 @@
 let palavrasExistentes = localStorage.getItem("palavras");
-let palavrasSalvas = localStorage.getItem("novasPalavras");
+var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
+var palavraSorteada = palavras[sorteidoDaPalavra]
+var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
+console.log(palavraPreparada);
 
-if(typeof palavrasSalvas === undefined){
-    var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
-    var palavraSorteada = palavras[sorteidoDaPalavra]
-    var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
-    console.log(palavraPreparada);
-} else {
-    var sorteidoDaPalavra = Math.floor(Math.random() * novasPalavras.length);
-    var palavraSorteada = novasPalavras[sorteidoDaPalavra]
-    var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
-    console.log(palavraPreparada);
-}
 
 for (var i = 0; i < palavraPreparada.length; i++) {
     var divParaPalavra = document.querySelector(".divParaPalavra")

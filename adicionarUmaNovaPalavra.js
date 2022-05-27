@@ -1,14 +1,14 @@
-function addNovaPalavra(palavras){
-    let palavrasExistentes = localStorage.getItem("palavras");
+function addNovaPalavra(){
+    let palavrasExistentes = localStorage.getItem("palavras"); 
+    console.log(palavras);
+
     var selecionandoTextArea = document.getElementById("palavraAdicionada");
-        var selecionandoTextArea = document.getElementById("palavraAdicionada");
-        console.log(selecionandoTextArea);
-        var selecinandoValor = selecionandoTextArea.value;
-        console.log(selecinandoValor);
+    var selecionandoValor = selecionandoTextArea.value;
+    console.log(selecionandoValor);
     
-        var novasPalavras = palavras.push(selecionandoValor);
-        
-    return novasPalavras
+    var novasPalavras = palavras.push(selecionandoValor);
+    console.log(novasPalavras);
+      return novasPalavras;
     };
     
 
@@ -23,7 +23,4 @@ var adicionarUmaNovaPalavra = document.querySelector(".salvarPalavra");
 
 var salvarPalavra = adicionarUmaNovaPalavra.addEventListener("click", addNovaPalavra);
 
-console.log(novasPalavras)
-
-localStorage.setItem('salvarPalavra', salvarPalavra);
-
+localStorage.setItem('palavras', palavras);
