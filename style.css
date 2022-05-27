@@ -335,9 +335,9 @@ input{
 }
 
 #letra{
-    margin: 10px;
-    width: 50px;
-    height: 50px;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
     background-color: #0A3871;
     color: white;
     border-radius: 10px;
