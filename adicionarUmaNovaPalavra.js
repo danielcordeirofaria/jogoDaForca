@@ -4,15 +4,13 @@ function addNovaPalavra(){
     var palavras = palavrasExistentes.push("selecionandoTextArea");
     console.log(palavras);
     localStorage.setItem('palavras', palavras);
-
-    return palavras
 };
 
-let palavrasExistentes = localStorage.getItem("palavras");
 
-var adicionarUmaNovaPalavra = document.querySelector("salvarEComecar");
+let palavrasExistentes = localStorage.getItem("palavras").value;
+console.log(palavrasExistentes);
+var adicionarUmaNovaPalavra = document.querySelector("salvarPalavra");
 
-var salvarEComeçar = adicionarUmaNovaPalavra.addEventListener("click", addNovaPalavra);
+var salvarPalavra = adicionarUmaNovaPalavra.addEventListener("click", addNovaPalavra);
 
-console.log(palavras); 
-
+console.log(salvarEComeçar);

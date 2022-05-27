@@ -13,14 +13,19 @@
                 <img class="logoDaAlura" src="Alura.png" alt="logo Alura">
             </header>
             <main id="mainAdicionarUmaPalavra">
-                <textarea placeholder="Digite uma palavra ou frase" id="palavraAdicionada" pattern="[a-z\s]+$" maxlength="8"></textarea>
+                <div class="textareaBotaoSalvar">
+                    <textarea placeholder="Digite uma palavra ou frase" id="palavraAdicionada" pattern="[a-z\s]+$" maxlength="8"></textarea>
+                    <form  id="salvarPalavra">
+                        <button class="salvarPalavra">Salvar</button>
+                    </form>   
+                </div>
                 <div class="conjuntoAviso">
                     <img src="exclamacao.png" class="exclamacao">
                     <p class="aviso">Máx. de 8 letras</p>
                 </div>
                 <div class="botoes">
                     <form action="jogoDaForca.html" id="jogoDaForca">
-                        <button type="submit" class="salvarEComecar">Salvar e Começar</button>
+                        <button type="submit" class="comecarJogo">Começar Jogo</button>
                     </form>                
                     <form action="index.html" id="cancelar">
                         <button class="cancelar">Cancelar</button>
