@@ -1,10 +1,17 @@
-
-
 let palavrasExistentes = localStorage.getItem("palavras");
-var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
-var palavraSorteada = palavras[sorteidoDaPalavra]
-var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
-console.log(palavraPreparada);
+let palavrasSalvas = localStorage.getItem("novasPalavras");
+
+if(typeof palavrasSalvas === undefined){
+    var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
+    var palavraSorteada = palavras[sorteidoDaPalavra]
+    var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
+    console.log(palavraPreparada);
+} else {
+    var sorteidoDaPalavra = Math.floor(Math.random() * novasPalavras.length);
+    var palavraSorteada = novasPalavras[sorteidoDaPalavra]
+    var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
+    console.log(palavraPreparada);
+}
 
 for (var i = 0; i < palavraPreparada.length; i++) {
     var divParaPalavra = document.querySelector(".divParaPalavra")
@@ -17,14 +24,15 @@ for (var i = 0; i < palavraPreparada.length; i++) {
 var selecaoDaTeclaA = document.querySelector(".a");
 
 var letraA = selecaoDaTeclaA.addEventListener("click", function() {
-    for(i = 0; palavraPreparada.length < i; i++){
-        if(palavraPreparada[i].includes("A")){
-            var confirmandoA = document.querySelector(".cadaLetra");
-            confirmandoA.classList.remove("cadaLetra");
-            confirmandoA.classList.add("letraAcertada");
-            console.log(confirmandoA.value);
-        } else {
-            var removendoA = document.querySelector(".a").classList.replace(".letraErrada")
-        }
+    //for(i = 0; palavraPreparada.length < i; i++){
+    var selecionandoClasseLetras = document.querySelector(".cadaLetra");
+    if(selecionandoClasseLetras.includes("A")){
+        var confirmandoA = document.querySelector(".cadaLetra");
+        confirmandoA.classList.remove("cadaLetra");
+        confirmandoA.classList.add("letraAcertada");
+         console.log(confirmandoA.value);
+    } else {
+        var removendoA = document.querySelector(".a").classList.replace(".letraErrada")
     }
+//}
 });
