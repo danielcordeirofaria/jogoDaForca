@@ -1,3 +1,16 @@
+function confirmandoLetraA(){
+    var selecionandoClasse = document.querySelectorAll(".cadaLetra");
+    var valorSelecionandoClasse = selecionandoClasse.value;
+    console.log(valorSelecionandoClasse);
+    if (valorSelecionandoClasse.contains(A)) {
+        selecionandoClasse.classList.replace("cadaLetra", "letraEncontrada");
+    } else {
+        var valorSelecionandoClasse = document.querySelector(".cadaLetra");
+        selecionandoClasse.classList.replace("cadaLetra", "letraErrada");
+    }
+};
+
+
 let palavrasExistentes = localStorage.getItem("palavras");
 var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
 var palavraSorteada = palavras[sorteidoDaPalavra]
@@ -13,18 +26,7 @@ for (var i = 0; i < palavraPreparada.length; i++) {
     div1.textContent = palavraPreparada[i];
 };
 
-var selecaoDaTeclaA = document.querySelector(".a");
+var selecionandoBotaoLetraA = document.getElementById("letra");
 
-var letraA = selecaoDaTeclaA.addEventListener("click", function() {
-    //for(i = 0; palavraPreparada.length < i; i++){
-    var selecionandoClasseLetras = document.querySelector(".cadaLetra");
-    if(selecionandoClasseLetras.includes("A")){
-        var confirmandoA = document.querySelector(".cadaLetra");
-        confirmandoA.classList.remove("cadaLetra");
-        confirmandoA.classList.add("letraAcertada");
-         console.log(confirmandoA.value);
-    } else {
-        var removendoA = document.querySelector(".a").classList.replace(".letraErrada")
-    }
-//}
-});
+var clickandoNaLetraA = selecionandoBotaoLetraA.addEventListener("click", confirmandoLetraA);
+
