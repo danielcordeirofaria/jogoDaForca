@@ -285,7 +285,7 @@ textarea::placeholder {
     margin-left: 10px;
     margin-right: 10px;
     text-transform: uppercase;
-    color: #E5E5E5;
+    color: #f30909;
     border-bottom-width: 3px;
     border-bottom-style: solid;
     border-bottom-color: #0A3871;
@@ -348,7 +348,7 @@ input{
 }
 
 #letra:active {
-    transform: scale(.96);
+    transform: scale(.80);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     user-select: none;
 }
