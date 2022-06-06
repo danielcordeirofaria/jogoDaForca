@@ -1,47 +1,106 @@
-var palavraPreparada = [];
+//Seletores e variáveis
 
+var palavras = ["PALAVRA", "CARRO", "CANETA", "CACHORRO", "CADERNO", "NOME", "TECLADO", "LIVRO", "HOJE" , "CELULAR" , "HOSPITAL" , "BOMBA", "SOCO" , "MODEM" , "NOTEBOOK" , "TRONCO" , "MUNDO"];
+var tabuleiro = document.getElementById("forca").getContext("2d");
+var letras = [];
+var palavraCorreta = "";
+var erros = 0;
+var somenteLetras = ["A", "B", "C", "D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z" ];
 
-
-//function sorteandoPalavra(){
-    let palavrasExistentes = localStorage.getItem("palavras");
-    var sorteidoDaPalavra = Math.floor(Math.random() * palavras.length);
-    var palavraSorteada = palavras[sorteidoDaPalavra];
-    var palavraPreparada = palavraSorteada.split("", palavraSorteada.value);
-    console.log(palavraPreparada);
-    //return palavraPreparada
-//};
-
-//function criandoElementos(){
-    for (var i = 0; i < palavraPreparada.length; i++) {
-        var divParaPalavra = document.querySelector(".divParaPalavra")
-        var div1 = document.createElement("div");
-        div1.classList.add("cadaLetra");
-        divParaPalavra.appendChild(div1);
-        div1.textContent = palavraPreparada[i];
-    };
-//};
-
-function confirmandoLetraA(){
-    //for(i = 0; palavraPreparada.length <= i ; i++){
-    var existeLetra = palavraPreparada.includes("a")
-        if( existeLetra == true){
-            console.log("deucerto");
-            var localizacaoDaLetra = palavraPreparada.indexOf("a");
-            console.log(localizacaoDaLetra);
-        } else {
-            console.log("não possui a letra")
-        }
+//Escolher palavra secreta
+function escolherPalavraSecreta(){
+    var palavra = palavras[Math.floor(Math.random() * palavras.length)];
+    palavraSecreta = palavra
+    return  palavra
 };
 
+//Funções para criar as DIVs
+function escreverTracinhos(){
+    tabuleiro.lineWidth = 6
+    tabuleiro.lineCap = "round"
+    tabuleiro.lineJoin = "round"
+    tabuleiro.strokeStyle = "#0A3871"
+    tabuleiro.beginPath()
+    var eixo = 600/palavraSecreta.length
+    for(let i = 0; i < palavraSecreta.length ; i++){
+        tabuleiro.moveTo(550 + (eixo*i), 640)
+        tabuleiro.lineTo(500 + (eixo*i), 640)
+    }
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}escreverTracinhos(escolherPalavraSecreta())
 
-//sorteandoPalavra();
-//criandoElementos();
+function escreverLetraCorreta(index){
+    tabuleiro.font = "bold 52px Inter";
+    tabuleiro.lineWidth = 6
+    tabuleiro.lineCap = "round"
+    tabuleiro.lineJoin = "round"
+    tabuleiro.strokeStyle = "#0A3871"
+    
+    var eixo = 600/palavraSecreta.length
+    tabuleiro.fillText(palavraSecreta[index], 505+(eixo*index), 620)
+    tabuleiro.stroke()
 
-//Verificar mediante um array do alfabeto. com textcontent e indexOf
+}
+
+function escreverLetraIncorreta(letra, errosLeft){
+    tabuleiro.font = "bold 40px Inter";
+    tabuleiro.lineWidth = 6
+    tabuleiro.lineCap = "round"
+    tabuleiro.lineJoin = "round"
+    tabuleiro.strokeStyle = "#0A3871"
+    tabuleiro.fillText(letra, 200 + (40*(10+errosLeft)), 710, 40)}
+
+function verificarLetraCorreta(key){
+    if(letras.length < 1 || letras.indexOf(key) < 0){
+        letras.push(key)
+        return false
+    }
+    else{
+        letras.push(key.toUpperCase())
+        return true
+    }
+}
+
+function adicionarLetraCorreta(i){
+    palavraCorreta += palavraSecreta[i].toUpperCase()
+}
+
+function adicionarLetraIncorreta(letter){
+    //if(palavraSecreta.indexOf(letter) > 0){
+        erros += 1
+        
+    }
+//}
 
 
 
-var selecionandoBotaoLetraA = document.querySelector(".a");
-
-selecionandoBotaoLetraA.addEventListener("click", confirmandoLetraA);
-
+document.onkeydown = (e) => {
+    var letra = e.key.toUpperCase()
+    console.log(letra)
+    if(somenteLetras.includes(letra)){
+        if(!verificarLetraCorreta(e.key)){
+            if(palavraSecreta.includes(letra)){
+                adicionarLetraCorreta(palavraSecreta.indexOf(letra))
+                for( let i = 0 ; i < palavraSecreta.length ; i++){
+                    if(palavraSecreta[i] === letra){
+                        escreverLetraCorreta(i)
+                    }
+                }
+            }
+    
+        else{
+            if (!verificarLetraCorreta(e.key)) 
+            return 
+            adicionarLetraIncorreta(letra)
+            escreverLetraIncorreta(letra, erros)
+            montarBoneco(erros)
+            if(erros == 8 ){ 
+                alert("Que pena, você perdeu! Clique no botão Novo Jogo para começar novamente")  
+            };
+        }
+        } else{
+            return false
+        }
+    }
+    };
