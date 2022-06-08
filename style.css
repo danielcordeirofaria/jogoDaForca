@@ -1,8 +1,12 @@
 html{
-    max-height: 800px;
-    max-width: 1200px;
     background-color: #E5E5E5;
 }
+
+.logo {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 
 .logoDaAlura {
     margin: 5% 10% 0;

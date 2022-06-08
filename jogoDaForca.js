@@ -11,6 +11,7 @@ var somenteLetras = ["A", "B", "C", "D", "E", "F","G","H","I","J","K","L","M","N
 function escolherPalavraSecreta(){
     var palavra = palavras[Math.floor(Math.random() * palavras.length)];
     palavraSecreta = palavra
+    console.log(palavra)
     return  palavra
 };
 
@@ -23,8 +24,8 @@ function escreverTracinhos(){
     tabuleiro.beginPath()
     var eixo = 600/palavraSecreta.length
     for(let i = 0; i < palavraSecreta.length ; i++){
-        tabuleiro.moveTo(550 + (eixo*i), 640)
-        tabuleiro.lineTo(500 + (eixo*i), 640)
+        tabuleiro.moveTo(550 + (eixo*i), 400)
+        tabuleiro.lineTo(500 + (eixo*i), 400)
     }
     tabuleiro.stroke()
     tabuleiro.closePath()
@@ -38,7 +39,7 @@ function escreverLetraCorreta(index){
     tabuleiro.strokeStyle = "#0A3871"
     
     var eixo = 600/palavraSecreta.length
-    tabuleiro.fillText(palavraSecreta[index], 505+(eixo*index), 620)
+    tabuleiro.fillText(palavraSecreta[index], 505+(eixo*index), 380)
     tabuleiro.stroke()
 
 }
@@ -49,7 +50,7 @@ function escreverLetraIncorreta(letra, errosLeft){
     tabuleiro.lineCap = "round"
     tabuleiro.lineJoin = "round"
     tabuleiro.strokeStyle = "#0A3871"
-    tabuleiro.fillText(letra, 200 + (40*(10+errosLeft)), 710, 40)}
+    tabuleiro.fillText(letra, 200 + (40*(10+errosLeft)), 450, 40)}
 
 function verificarLetraCorreta(key){
     if(letras.length < 1 || letras.indexOf(key) < 0){
@@ -63,8 +64,11 @@ function verificarLetraCorreta(key){
 }
 
 function adicionarLetraCorreta(i){
-    palavraCorreta += palavraSecreta[i].toUpperCase()
-}
+    palavraCorreta += palavraSecreta[i].toUpperCase() // palavraCorreta = palavraCorreta + palavraSecreta[i]        
+    if(palavraCorreta === palavraSecreta){
+        alert("Parabéns! Você venceu!")
+    }
+};
 
 function adicionarLetraIncorreta(letter){
     //if(palavraSecreta.indexOf(letter) > 0){
@@ -96,7 +100,9 @@ document.onkeydown = (e) => {
             escreverLetraIncorreta(letra, erros)
             montarBoneco(erros)
             if(erros == 8 ){ 
-                alert("Que pena, você perdeu! Clique no botão Novo Jogo para começar novamente")  
+                alert("Que pena, você perdeu! Clique ok para tentar novamente")  
+                document.location.reload(true);
+
             };
         }
         } else{
