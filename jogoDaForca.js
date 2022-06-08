@@ -6,6 +6,7 @@ var letras = [];
 var palavraCorreta = "";
 var erros = 0;
 var somenteLetras = ["A", "B", "C", "D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z" ];
+var acertos = 0;
 
 //Escolher palavra secreta
 function escolherPalavraSecreta(){
@@ -65,9 +66,6 @@ function verificarLetraCorreta(key){
 
 function adicionarLetraCorreta(i){
     palavraCorreta += palavraSecreta[i].toUpperCase() // palavraCorreta = palavraCorreta + palavraSecreta[i]        
-    if(palavraCorreta === palavraSecreta){
-        alert("Parabéns! Você venceu!")
-    }
 };
 
 function adicionarLetraIncorreta(letter){
@@ -87,8 +85,13 @@ document.onkeydown = (e) => {
             if(palavraSecreta.includes(letra)){
                 adicionarLetraCorreta(palavraSecreta.indexOf(letra))
                 for( let i = 0 ; i < palavraSecreta.length ; i++){
+                    if(acertos == palavraSecreta.length){
+                        alert("Parabéns")
+                    } 
                     if(palavraSecreta[i] === letra){
-                        escreverLetraCorreta(i)
+                        escreverLetraCorreta(i)    
+                        acertos ++
+                       
                     }
                 }
             }
