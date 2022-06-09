@@ -6,11 +6,20 @@ var letras = [];
 var palavraCorreta = "";
 var erros = 0;
 var somenteLetras = ["A", "B", "C", "D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z" ];
+var acertos = 0;
+var selecionandoBotaoDesistir = document.querySelector(".botaoDesistir");
+var selecionandoBotaoAdicionarNovaPalavra = document.querySelector(".botaoAdicionarNovaPalavra");
+var canvas = document.getElementById("forca");
+var clickNovoJogo = 0
+var selecionarBotaoNovoJogo = document.querySelector(".novoJogo");
+var selecionarTextArea = document.getElementById("palavraAdicionada");
+var selecionarDivAreaSalvarPalavra = document.querySelector(".areaSalvarPalavra");
 
 //Escolher palavra secreta
 function escolherPalavraSecreta(){
     var palavra = palavras[Math.floor(Math.random() * palavras.length)];
     palavraSecreta = palavra
+    console.log(palavra)
     return  palavra
 };
 
@@ -23,8 +32,8 @@ function escreverTracinhos(){
     tabuleiro.beginPath()
     var eixo = 600/palavraSecreta.length
     for(let i = 0; i < palavraSecreta.length ; i++){
-        tabuleiro.moveTo(550 + (eixo*i), 640)
-        tabuleiro.lineTo(500 + (eixo*i), 640)
+        tabuleiro.moveTo(550 + (eixo*i), 400)
+        tabuleiro.lineTo(500 + (eixo*i), 400)
     }
     tabuleiro.stroke()
     tabuleiro.closePath()
@@ -38,7 +47,7 @@ function escreverLetraCorreta(index){
     tabuleiro.strokeStyle = "#0A3871"
     
     var eixo = 600/palavraSecreta.length
-    tabuleiro.fillText(palavraSecreta[index], 505+(eixo*index), 620)
+    tabuleiro.fillText(palavraSecreta[index], 505+(eixo*index), 380)
     tabuleiro.stroke()
 
 }
@@ -49,7 +58,7 @@ function escreverLetraIncorreta(letra, errosLeft){
     tabuleiro.lineCap = "round"
     tabuleiro.lineJoin = "round"
     tabuleiro.strokeStyle = "#0A3871"
-    tabuleiro.fillText(letra, 200 + (40*(10+errosLeft)), 710, 40)}
+    tabuleiro.fillText(letra, 200 + (40*(10+errosLeft)), 450, 40)}
 
 function verificarLetraCorreta(key){
     if(letras.length < 1 || letras.indexOf(key) < 0){
@@ -63,8 +72,8 @@ function verificarLetraCorreta(key){
 }
 
 function adicionarLetraCorreta(i){
-    palavraCorreta += palavraSecreta[i].toUpperCase()
-}
+    palavraCorreta += palavraSecreta[i].toUpperCase() // palavraCorreta = palavraCorreta + palavraSecreta[i]        
+};
 
 function adicionarLetraIncorreta(letter){
     //if(palavraSecreta.indexOf(letter) > 0){
@@ -72,6 +81,53 @@ function adicionarLetraIncorreta(letter){
         
     }
 //}
+
+function botaoDesistir(){
+    selecionandoBotaoDesistir.style.display = "inline";
+}
+
+function adicionarNovaPalavra(){
+    selecionandoBotaoAdicionarNovaPalavra.style.display = "none";
+}
+
+function displayNoneCanvas(){
+    canvas.style.display = "inline";
+}
+
+function textarea(){
+    selecionarTextArea.style.display = "inline"
+}
+
+function areaSalvarPalavra(){
+    selecionarDivAreaSalvarPalavra.style.display = "none"
+}
+
+function areaSalvarPalavraNone(){
+    selecionarDivAreaSalvarPalavra.style.display = "none"
+}
+
+selecionarBotaoNovoJogo.addEventListener("click", function(){
+    botaoDesistir()
+    areaSalvarPalavraNone()
+    adicionarNovaPalavra()
+    if(clickNovoJogo == 0){
+        displayNoneCanvas()
+
+    }else{
+        document.location.reload(true);
+    }
+    clickNovoJogo++
+});
+
+
+/*var selecionandoTextArea = document.getElementById("palavraAdicionada");
+    var selecionandoValor = selecionandoTextArea.value;
+    console.log(selecionandoValor);*/
+
+selecionandoBotaoAdicionarNovaPalavra.addEventListener("click", function(){
+    areaSalvarPalavra()
+
+})
 
 
 
@@ -83,8 +139,13 @@ document.onkeydown = (e) => {
             if(palavraSecreta.includes(letra)){
                 adicionarLetraCorreta(palavraSecreta.indexOf(letra))
                 for( let i = 0 ; i < palavraSecreta.length ; i++){
+                    if(acertos == palavraSecreta.length){
+                        alert("Parabéns")
+                    } 
                     if(palavraSecreta[i] === letra){
-                        escreverLetraCorreta(i)
+                        escreverLetraCorreta(i)    
+                        acertos ++
+                       
                     }
                 }
             }
@@ -96,7 +157,9 @@ document.onkeydown = (e) => {
             escreverLetraIncorreta(letra, erros)
             montarBoneco(erros)
             if(erros == 8 ){ 
-                alert("Que pena, você perdeu! Clique no botão Novo Jogo para começar novamente")  
+                alert("Que pena, você perdeu! Clique ok para tentar novamente")  
+                document.location.reload(true);
+
             };
         }
         } else{
