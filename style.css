@@ -90,14 +90,7 @@ main{
     margin: 10px;
     font-size: 24px;
     user-select: none;
-
-}
-
-#botaoAdicionarNovaPalavra{
-    display: contents;
-    user-select: none;
-
-
+    display: none;
 }
 
 .botaoAdicionarNovaPalavra:active {
@@ -159,8 +152,12 @@ main{
     display: contents;
 }
 
-#jogoDaForca{
-    display: contents;  
+.forca{
+    display: none;  
+}
+
+.forcaAparecendo{
+    display: inline;
 }
 
 textarea {
@@ -200,10 +197,11 @@ textarea::placeholder {
     font-style: normal;
     border: initial;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     user-select: none;
+    align-items: center;
 
 }
 
@@ -239,7 +237,7 @@ textarea::placeholder {
     margin: 10px;
     font-size: 24px;
     user-select: none;
-
+    display: none;
 }
 
 #botaoDesistir{
@@ -413,4 +411,8 @@ input{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.areaSalvarPalavra{
+    display: none;
 }

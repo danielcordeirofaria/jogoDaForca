@@ -7,6 +7,13 @@ var palavraCorreta = "";
 var erros = 0;
 var somenteLetras = ["A", "B", "C", "D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z" ];
 var acertos = 0;
+var selecionandoBotaoDesistir = document.querySelector(".botaoDesistir");
+var selecionandoBotaoAdicionarNovaPalavra = document.querySelector(".botaoAdicionarNovaPalavra");
+var canvas = document.getElementById("forca");
+var clickNovoJogo = 0
+var selecionarBotaoNovoJogo = document.querySelector(".novoJogo");
+var selecionarTextArea = document.getElementById("palavraAdicionada");
+var selecionarDivAreaSalvarPalavra = document.querySelector(".areaSalvarPalavra");
 
 //Escolher palavra secreta
 function escolherPalavraSecreta(){
@@ -75,23 +82,54 @@ function adicionarLetraIncorreta(letter){
     }
 //}
 
-function paginaInicial(){
-    var selecionandoBotaoDesistir = document.querySelector(".botaoDesistir");
-    selecionandoBotaoDesistir.style.display = "none";
+function botaoDesistir(){
+    selecionandoBotaoDesistir.style.display = "inline";
 }
 
 function adicionarNovaPalavra(){
-    var selecionandoBotaoAdicionarNovaPalavra = document.querySelector(".botaoAdicionarNovaPalavra");
     selecionandoBotaoAdicionarNovaPalavra.style.display = "none";
 }
 
 function displayNoneCanvas(){
-    var canvas = document.getElementById("forca")
-    canvas.style.display = "none";
+    canvas.style.display = "inline";
 }
 
-displayNoneCanvas()
-paginaInicial();
+function textarea(){
+    selecionarTextArea.style.display = "inline"
+}
+
+function areaSalvarPalavra(){
+    selecionarDivAreaSalvarPalavra.style.display = "none"
+}
+
+function areaSalvarPalavraNone(){
+    selecionarDivAreaSalvarPalavra.style.display = "none"
+}
+
+selecionarBotaoNovoJogo.addEventListener("click", function(){
+    botaoDesistir()
+    areaSalvarPalavraNone()
+    adicionarNovaPalavra()
+    if(clickNovoJogo == 0){
+        displayNoneCanvas()
+
+    }else{
+        document.location.reload(true);
+    }
+    clickNovoJogo++
+});
+
+
+/*var selecionandoTextArea = document.getElementById("palavraAdicionada");
+    var selecionandoValor = selecionandoTextArea.value;
+    console.log(selecionandoValor);*/
+
+selecionandoBotaoAdicionarNovaPalavra.addEventListener("click", function(){
+    areaSalvarPalavra()
+
+})
+
+
 
 document.onkeydown = (e) => {
     var letra = e.key.toUpperCase()
