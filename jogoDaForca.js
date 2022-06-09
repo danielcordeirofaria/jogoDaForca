@@ -75,7 +75,23 @@ function adicionarLetraIncorreta(letter){
     }
 //}
 
+function paginaInicial(){
+    var selecionandoBotaoDesistir = document.querySelector(".botaoDesistir");
+    selecionandoBotaoDesistir.style.display = "none";
+}
 
+function adicionarNovaPalavra(){
+    var selecionandoBotaoAdicionarNovaPalavra = document.querySelector(".botaoAdicionarNovaPalavra");
+    selecionandoBotaoAdicionarNovaPalavra.style.display = "none";
+}
+
+function displayNoneCanvas(){
+    var canvas = document.getElementById("forca")
+    canvas.style.display = "none";
+}
+
+displayNoneCanvas()
+paginaInicial();
 
 document.onkeydown = (e) => {
     var letra = e.key.toUpperCase()
